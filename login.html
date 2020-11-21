@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>login</title>
+    <link rel="stylesheet" href="public/style.css" />
+  </head>
+  <body>
+    <div id="nav">
+      <ul> 
+        <li>
+          <a href="login.html">login</a>
+        </li>
+        <li>
+          <a href="register.html">register</a>
+        </li>
+        <li><a href="game.html"> Play the Game </a> |</li>
+        <li><a href="discussion.html"> Discussion Board </a>|</li>
+        <li><a href="home.html"> My Account </a></li>
+      </ul>
+    </div>
+    <div class="wrapper">
+      <h1>login</h1>
+      <div class="form-list">
+        <div class="form-item">
+          <span>username：</span>
+          <input type="text" name="username" id="name" />
+        </div>
+        <div class="form-item">
+          <span>password：</span>
+          <input type="text" name="userpwd" id="pwd" />
+        </div>
+        <div class="btn">
+          <button onclick="submit()">login now</button>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="public/jquery.min.js"></script>
+  <script>
+    function submit() {
+      var name = $("#name")
+        .val()
+        .trim();
+      var pwd = $("#pwd")
+        .val()
+        .trim(); 
+      $.ajax({
+        url: "http://localhost:8082/process_login",
+        type: "post",
+        data: {
+          userName: name,
+          pwd: pwd
+        },
+        success: function(res) {
+          console.log(res);
+          if (res.code == 0) {
+            // alert("登录成功"); 
+            window.location.href = 'main.html';
+          } else {
+            alert(res.message);
+          }
+        }
+      });
+    }
+  </script>
+</html>
