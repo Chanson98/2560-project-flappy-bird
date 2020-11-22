@@ -1,7 +1,6 @@
 var mongoClient = require('mongodb').MongoClient;
 var url = 'mongodb://localhost:27017/';
 
-//查询指定条件的数据
 function searchUser(whereStr, callBack) {
     mongoClient.connect(url, { useNewUrlParser: true }, function (err, db) {
         if (err) throw err;
@@ -15,7 +14,6 @@ function searchUser(whereStr, callBack) {
     })
 }
 
-//插入一条数据到数据库
 function insertUser(myobj, callBack) {
     mongoClient.connect(url, { useNewUrlParser: true }, function (err, db) {
         if (err) throw err;

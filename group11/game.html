@@ -11,35 +11,85 @@
  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Permanent Marker' rel='stylesheet'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-  <style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+   
+  <!-- <style>
 body {
   background-color: #485b7a;
 }
-</style>
+</style> -->
   
   </head>
 
  <body>
 
-         <div class="menubar">
-      <a href = "game.html"> Play the Game </a>  | 
-      <a href = "register.html"> Sign Up </a> | 
-      <a href = "login.html"> Login </a>  | 
-      <a href = "discussion.html"> Discussion Board </a>  | 
-      <a href = "main.html"> My Account </a>
-      </div>
+    <div>       
+        <nav class="navbar navbar-default navbar-fixed-top"><!--navi bar-->
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <div class="navbar-brand">Flappy panther</div>
+            </div>
+            <div class="collapse navbar-collapse">
+              <ul class="nav navbar-nav">
+                <li role="presentation"><a href="game.html">Play the Game</a></li>
+                
+                <li class="dropdown"><!--sign up-->
+                  <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign up <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <form class="navbar-form">
+                      <div class="form-group">
+                        <p><input type="text" class="form-control" placeholder="your name" id="name" name="uname" value=""></p>
+                        <p><input type="text" class="form-control" placeholder="your email" id="email" name="uemail" value=""></p>
+                        <p><input type="text" class="form-control" placeholder="your password" id="password" upassword="uname" value=""></p>
+                      </div>
+                      <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="register.html">Sign up Page</a></li>
+                  </ul>
+                </li><!--sign up-->
+                
+                <li class="dropdown"><!--log in-->
+                  <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Log in <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <form class="navbar-form">
+                      <div class="form-group">
+                        <p><input type="text" class="form-control" placeholder="user name"></p>
+                        <p><input type="text" class="form-control" placeholder="password"></p>
+                      </div>
+                      <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="forget.html">Forget Password?</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="login.html">Login Page</a></li>
+                  </ul>
+                </li><!--log in-->
+                
+                <li role="presentation"><a href="discussion.html">Discussion Board</a></li>
+                <li role="presentation"><a href="main.html">My Account</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div><br><br>
+    
    
-
-   
-<h1><b>Flappy Bird<div id="div1" class="fa"></div> </b></h1>
+<h1><b>Flappy Panther<div id="div1" class="fa"></div> </b></h1>
    
            <div id="score">
+             
+            <form id="score_form" >
+            
+            <p><label for="yourscore">Your score:</label>
+			      <input type="text" id="yourscore" name="yourscore" value="" /></p>      
+            <input type="submit" value="share">
+        </form><br>
     
    </div>
    
 <canvas id="myCanvas" width=320 height=480 
- style="background:url('http://s2js.com/img/etc/flappyback.png');  background-size: 100%; height: 90% " 
+ style="background:url('https://cdn.glitch.com/d16430fb-30d8-41ad-8e45-36bab2216ca9%2Fbackground.png?v=1605929360671');  background-size: 100%; height: 90% " 
 </canvas>
     <h3> <i onclick="myFunction(this)" class="fa fa-thumbs-up"></i></h3>
 
@@ -173,7 +223,7 @@ function display_game_over () {
    ctx.font= "20px Arial";
    ctx.fillText("Click, touch, or press to play again", myCanvas.width / 2, 300); 
    
-  document.getElementById("score").innerHTML = "Your score is: " + score; 
+  doscument.getElementById("yourscore").value = score; 
   document.getElementById("score").style.display = "block";
 
    }
@@ -208,7 +258,7 @@ function add_all_my_pipes() {
     }
  var pipe_piece = new Image();
  pipe_piece.onload = add_all_my_pipes;                       
- pipe_piece.src = "http://s2js.com/img/etc/flappypipe.png" ;
+ pipe_piece.src = "https://cdn.glitch.com/d16430fb-30d8-41ad-8e45-36bab2216ca9%2Fcol%20copy.png?v=1605929074286" ;
 function Do_a_Frame () {
     ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);   
     bird.Do_Frame_Things(); 
@@ -235,9 +285,9 @@ function Do_a_Frame () {
         } 
     }
  var bottom_bar = new Image();
- bottom_bar.src = "http://s2js.com/img/etc/flappybottom.png" ;
+ bottom_bar.src = "https://cdn.glitch.com/d16430fb-30d8-41ad-8e45-36bab2216ca9%2Fbar.png?v=1605929651257" ;
 
- var bird = new MySprite("http://s2js.com/img/etc/flappybird.png");
+ var bird = new MySprite("https://cdn.glitch.com/d16430fb-30d8-41ad-8e45-36bab2216ca9%2Ficon.png?v=1605930068377");
  bird.x = myCanvas.width / 3;
  bird.y = myCanvas.height / 2;
 
@@ -246,6 +296,7 @@ function Do_a_Frame () {
          
 
    
-   
+         <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+         <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  
 </body>
 </html>

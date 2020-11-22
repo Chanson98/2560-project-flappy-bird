@@ -3,17 +3,14 @@ var app = express();
 var bodyParser = require('body-parser');
 var db = require('./db');
 
-
 app.use('/public', express.static('public'));
 
 //application/x-www-form-urlencoded code 
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
-
 app.get('/login.html', function (req, res) {
     res.sendFile(__dirname + '/' + 'login.html');
 })
-
 
 app.get('/', function (req, res) {
     res.sendFile(__dirname + '/' + 'index.html');
