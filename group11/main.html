@@ -10,7 +10,7 @@
     <!-- import the webpage's stylesheet -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
    
-    <link rel="stylesheet" href="public/style.css">
+    <link rel="stylesheet" href="public/dbstyle.css">
     
     <!-- import the webpage's javascript file -->
     <script src="/script.js" defer></script>
@@ -27,7 +27,7 @@
       <nav class="navbar navbar-default navbar-fixed-top"><!--navi bar-->
         <div class="container-fluid">
           <div class="navbar-header">
-            <div class="navbar-brand">Flappy panther</div>
+            <a class="navbar-brand" href="index.html">Flappy panther</a>
           </div>
           <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
@@ -42,14 +42,70 @@
       </nav>
     </div><br><br>
     <br><br>
-                            <div class ="textbody">
-
-    <p>
-      <h1>
-        Welcome to your homepage! 
-    </h1>
-    </p>
-    </div>
-    </div>
+      <div class="jumbotron">
+        <div class="container">
+          <h1 style="color: white">Welcome abc!</h1>
+          <p style="color: white">Here's Your Profile</p>
+        </div>
+      </div>
+    
+    
+    
+    <div class="container">
+   
+   
+        <table class="table">
+          <caption style="font-size:22px;color:white;">Your Message</caption>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Score</th>
+              <th>Date</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>I got a high score</td>
+              <td>5</td>
+              <td>21/11/2020</td>
+              <td><button class="btn btn-default" role="dialog" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> View</button></td>
+            </tr>
+            <tr>
+              <td>flappy bird is so easy</td>
+              <td>78</td>
+              <td>22/11/2020</td>
+              <td><a href="#" class="btn btn-default" role="button"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> View</a></td>
+            </tr>
+            <tr>
+              <td>waste 5 hours in my life to play this game</td>
+              <td>8</td>
+              <td>23/11/2020</td>
+              <td><a href="#" class="btn btn-default" role="button"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> View</a></td>
+            </tr>
+          </tbody>
+        </table><!--table-->
+   </div><!--container_body-->
+    
+    <!--modal to show full message-->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"><!--modal-->
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  <h4 class="modal-title" id="myModalLabel">I got a high score</h4><!--Title-->
+              </div>
+              <div class="modal-body">I enjoy this game lol!</div><!--Message-->
+              <div class="modal-footer">
+                <span class="label label-default" style="float:left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Like <span class="badge">42</span></span>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>  
+              </div>
+          </div><!-- /.modal-content -->
+      </div><!-- /.modal -->
+    </div><!--modal-->
+    
+    
+        <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
   </body>
 </html>
