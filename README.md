@@ -4,7 +4,7 @@ use node to realize log in and resgiter
 
 ## before run the project
 requirement：
-1. npm install /n
+1. npm install \n
 2.need local mongodb install
 
 ## run the project
