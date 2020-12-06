@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Your Homepage</title>
+
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+   
+    <link rel="stylesheet" href="public/dbstyle.css">
+    
+    <!-- import the webpage's javascript file -->
+    <script src="public/jquery.min.js"></script>
+    <script type="text/javascript" src="public/loginControl.js"></script>
+    <link rel="stylesheet" href="public/nav.css" />
+
+    
+
+    
+    
+    
+  </head>  
+  <body onload="init();showprofile();">
+    <div>
+      <nav class="navbar navbar-default navbar-fixed-top"><!--navi bar-->
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="/">Flappy panther</a>
+          </div>
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li role="presentation" id="play"><a href="game.html">Play the Game</a></li>
+              <li role="presentation" id="db"><a href="discussion.html">Discussion Board</a></li>
+              <li role="presentation" id="myaccount"><a href="main.html">My Account</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown" id="signup"><!--sign up-->
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign up <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <form class="navbar-form">
+                    <div class="form-group">
+                      <p><input type="text" class="form-control" placeholder="your name" id="Sname" name="Sname" value=""></p>
+                      <p><input type="text" class="form-control" placeholder="your password" id="Spwd" name="Spwd" value=""></p>
+                    </div>
+                    <button type="submit" class="btn btn-default" onclick="signup()">Submit</button>
+                  </form>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="register.html">Sign up Page</a></li>
+                </ul>
+              </li><!--sign up-->
+
+              <li class="dropdown" id="login"><!--log in-->
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Log in <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <form class="navbar-form">
+                    <div class="form-group">
+                      <p><input type="text" class="form-control" placeholder="user name" id="name" name="name"></p>
+                      <p><input type="text" class="form-control" placeholder="password" id="pwd" name="pwd"></p>
+                    </div>
+                    <button type="submit" class="btn btn-default" onclick="login()">Submit</button>
+                  </form>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="forget.html">Forget Password?</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="login.html">Login Page</a></li>
+                </ul>
+              </li><!--log in-->
+              <li class="navbar-text" id="welcome"></li>
+              <li><button class="btn btn-default" id="logout" onclick="logout()">Log out</button><li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div><br><br>
+      <div class="jumbotron">
+        <div class="container">
+          <h1 id="Accountwelcome" style="color: white">Welcome abc!</h1>
+          <p style="color: white">Here's Your Profile</p>
+          <p style="color: white" id="lastscore"></p>
+          <p><button class = "btn btn-default" id="sharebutton" role="dialog" data-toggle="modal" data-target="#sharebox" onclick="share()">Share!</button></p>
+        </div>
+      </div>
+    
+    
+    
+    <div class="container">
+   
+   
+        <table class="table">
+          <caption style="font-size:22px;color:white;">Your Message<small> (Show the highest scores)</small></caption>
+          <thead>
+            <tr id="trtitle">
+              <th>Title</th>
+              <th>Score</th>
+              <th>Date</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr >
+              <td id="title0"></td>
+              <td id="score0"></td>
+              <td id="date0"></td>
+              <td><button class="btn btn-default" role="dialog" data-toggle="modal" data-target="#myModal0"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> View</button></td>
+            </tr>
+            <tr >
+              <td id="title1"></td>
+              <td id="score1"></td>
+              <td id="date1"></td>
+              <td><button class="btn btn-default" role="dialog" data-toggle="modal" data-target="#myModal1"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> View</button></td>
+            </tr>
+            <tr>
+              <td id="title2"></td>
+              <td id="score2"></td>
+              <td id="date2"></td>
+              <td><button class="btn btn-default" role="dialog" data-toggle="modal" data-target="#myModal2"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> View</button></td>
+            </tr>
+          </tbody>
+        </table><!--table-->
+   </div><!--container_body-->
+
+
+    <!--modal to show share box-->
+    <div class="modal fade" id="sharebox" tabindex="-1" role="dialog" aria-labelledby="sharebox" aria-hidden="true"><!--modal-->
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Leave your Message!</h4><!--Title-->
+          </div>
+          <div class="modal-body">
+            <form class="navbar-form">
+              <div class="form-group" id="shareform">
+                <p style="color: #111111">Your score is:</p>
+                <p><input type="text" class="form-control" id="sharescore" value="" disabled="disabled"></p>
+                <p style="color: #111111">Now is:</p>
+                <p><input type="text" class="form-control" id="sharedate" value="" disabled="disabled"></p>
+                <p><input type="text" class="form-control" placeholder="Title" id="sharetitle" name="sharetitle"></p>
+                <p><textarea class="form-control" placeholder="Message"
+                             id="sharemessage" name="sharemessage" rows="10"></textarea></p>
+                <p><button type="submit" class="btn btn-default" onclick="insertMessage()">Submit</button></p>
+              </div>
+            </form>
+          </div><!--Message-->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal -->
+    </div><!--modal-->
+    
+    <!--modal to show full message-->
+    <!--modal0-->
+    <div class="modal fade" id="myModal0" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"><!--modal-->
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="modaltitle0"></h4><!--Title-->
+          </div>
+          <div class="modal-body" id="modalmessage0"></div><!--Message-->
+          <div class="modal-footer">
+            <span class="label label-default" style="float:left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Like <span class="badge" id="modallike0"></span></span>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal -->
+    </div><!--modal-->
+    <!--modal1-->
+    <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"><!--modal-->
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="modaltitle1"></h4><!--Title-->
+          </div>
+          <div class="modal-body" id="modalmessage1"></div><!--Message-->
+          <div class="modal-footer">
+            <span class="label label-default" style="float:left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Like <span class="badge" id="modallike1"></span></span>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal -->
+    </div><!--modal-->
+    <!--modal2-->
+    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"><!--modal-->
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="modaltitle2"></h4><!--Title-->
+          </div>
+          <div class="modal-body" id="modalmessage2"></div><!--Message-->
+          <div class="modal-footer">
+            <span class="label label-default" style="float:left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Like <span class="badge" id="modallike2"></span></span>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal -->
+    </div><!--modal-->
+
+    
+    
+        <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script>showprofile()</script>
+  </body>
+</html>

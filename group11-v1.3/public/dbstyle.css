@@ -1,0 +1,46 @@
+.thumbnail{
+  background-color: #374440;
+  height:200px;
+}
+.mainbody{
+  background-color: #374440;
+}
+.pager{
+ font-color:white;
+}
+.jumbotron{
+  background-color: #374440;
+}
+
+.thumbnail h3{
+  color:white;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.thumbnail p{
+  color:white;
+}
+.message-btn{
+  position:absolute;
+  bottom:30px;
+}
+
+.thumbnail btn btn-default{
+  color:white;
+}
+body{
+  background-color: #374440;
+}
+p{
+  color:white;
+}
+th{
+  color:white;
+}
+td{
+  color:white;
+}
+
+
+

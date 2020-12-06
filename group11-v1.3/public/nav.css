@@ -1,0 +1,30 @@
+#signup{
+    display: block;
+}
+#login{
+    display: block;
+}
+#welcome{
+    display: none;
+}
+#logout{
+    display: none;
+    border-radius: 10%;
+    margin-top:7px;
+}
+#sharebutton{
+    display: none;
+}
+.modal{
+    background-color: #374440;
+}
+#shareform input{
+    width:200%;
+}
+#shareform textarea{
+    width:200%;
+    resize:none;
+}
+.boxid{
+    display: none;
+}
